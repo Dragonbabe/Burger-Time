@@ -1,25 +1,17 @@
 const connection = require('./connection');
 
-function selectAll() {
-    connection.query('SELECT * FROM burgers',
-    function (err, res) {
-        if (err) throw err;
-        console.log(res)
+const orm = {
+    selectAll: function(tableInput, colToSearch, valOfCol) {
+        const queryString = 'SELECT * FROM ?? WHERE ?? = ?';
+        connection.query(queryString, [tableInput, colToSearch, valOfCol], function(
+            err,
+            data
+        ) {
+            if (err) throw err;
+            console.log(data);
+        }
+        );
     }
-    )
 };
-function insertOne(){
-    connection.query('SELECT * FROM burgers',
-    function (err, res) {
-        if (err) throw err;
-        console.log()
-    })
-};
-function updateOne(){
-    connection.query('SELECT * FRom burgers', 
-    function (err, res) {
-        if (err) throw err;
-        console.log(res)
-    })
-};
-module.exports.connection;
+
+module.exports.orm;
