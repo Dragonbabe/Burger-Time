@@ -1,37 +1,40 @@
 const connection = require('./connection');
 
 const orm = {
-    selectAll: function(burgers, devourable) {
-        const queryString = 'SELECT * FROM ?? WHERE ??? = ?';
-        connection.query(queryString, [burgers, devourable], function(
+    selectAll: function(tableName, cb) {
+        const queryString = 'SELECT * FROM ?';
+        connection.query(queryString, [tableName], function(
             err,
             data
         ) {
             if (err) throw err;
             console.log(data);
+            cb(data)
         });
     },
-    insertOne: function(addBurger, devourable){
-        const queryString = 'INSERT INTO burgers VALUES ?';
-        connection.query(queryString, [addBurger, devourable], function(
+    insertOne: function(tableName, rowData, cb){
+        const queryString = 'INSERT INTO ? SET ?';
+        connection.query(queryString, [tableName, rowData], function(
             err,
             data
         ){
             if (err) throw err;
             console.log(data);
+            cb(data)
         });
     },
-    updateOne: function(updateBurger, devoured){
-        const queryString = 'INSERT INTO burgers VALUES ?';
-        connection.query(queryString, [updateBurger, devoured], function(
+    updateOne: function(tableName, rowData, condition, cb){
+        const queryString = 'UPDATE ? SET ? WHERE ?';
+        connection.query(queryString, [tableName, rowData, condition], function(
             err,
             data
         ){
             if (err) throw err;
             console.log(data)
+            cb(data)
         });
     }
 };
 
 
-module.exports.orm;
+module.exports = orm;
