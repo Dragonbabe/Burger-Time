@@ -24,38 +24,34 @@ function objToSql(ob){
 }
 
 const orm = {
-    selectAll: function(tableName, cb) {
-        let queryString = `SELECT * FROM ${tableName} ;` ;
-        connection.query(queryString, function(
-            err,
-            data
-        ) {
-            if (err) throw err;
-            console.log(data);
-            cb(data)
+    selectAll: function (tableName, cb) {
+        let queryString = `SELECT * FROM ${tableName} ;`;
+        connection.query(queryString, (err, data) => {
+            if (err) {
+                throw err;
+            }
+            cb(data);
         });
     },
 
     insertOne: function(tableName, rowData, cb){
-        let queryString = 'INSERT INTO ? SET ?';
+        let queryString = `INSERT INTO ${tableName}`;
 
         queryString += '(';
-        queryString += close.toString();
+        queryString += cols.toString();
         queryString += ')';
         queryString += 'VALUES (';
         queryString += printQuestionMarks(vals.length);
-        queryString += ')'
+        queryString += ')';
 
-        connection.query(queryString, [tableName, rowData], function(
-            err,
-            data
-        ){
-            if (err) throw err;
-            console.log(data);
-            cb(data)
+        connection.query(queryString, vals, (err, data) => {
+            if (err) {
+                throw err;
+            }
+            cb(data);
         });
     },
-    updateOne: function(tableName, rowData, condition, cb){
+    updateOne: function(rowData, condition, cb){
         let queryString = 'UPDATE ? SET ? WHERE ?';
 
         queryString += 'SET ';
