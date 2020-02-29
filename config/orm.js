@@ -38,6 +38,14 @@ const orm = {
 
     insertOne: function(tableName, rowData, cb){
         let queryString = 'INSERT INTO ? SET ?';
+
+        queryString += '(';
+        queryString += close.toString();
+        queryString += ')';
+        queryString += 'VALUES (';
+        queryString += printQuestionMarks(vals.length);
+        queryString += ')'
+
         connection.query(queryString, [tableName, rowData], function(
             err,
             data
@@ -48,11 +56,16 @@ const orm = {
         });
     },
     updateOne: function(tableName, rowData, condition, cb){
-        const queryString = 'UPDATE ? SET ? WHERE ?';
-        connection.query(queryString, [tableName, rowData, condition], function(
-            err,
-            data
-        ){
+        let queryString = 'UPDATE ? SET ? WHERE ?';
+
+        queryString += 'SET ';
+        queryString += objToSql(rowData);
+        queryString += 'WHERE ';
+        queryString += condition;
+
+        connection.query(queryString,(err, data) =>
+            
+        {
             if (err) throw err;
             console.log(data)
             cb(data)
