@@ -1,8 +1,8 @@
-
+'use strict';
 
 $(function(){
 
-$('.createburger').on('click', function(event){
+$('.createburger').on('submit', function(event){
     event.preventDefault();
 
     const newBurger = {
@@ -10,11 +10,12 @@ $('.createburger').on('click', function(event){
         .val()
         .trim()
     };
+    
     $.ajax('/burgers/new', {
         type: 'POST',
         data: newBurger
     }).then(function(){
-        console.log('created new burger!');
+        
         location.reload();
     });
 });
@@ -34,7 +35,7 @@ $('.createburger').on('click', function(event){
             type: 'PUT',
             data: newDevouredBurger
         }).then(function(){
-            console.log('Devoured the burger!', devoured);
+           
             location.reload();
         });
     });
