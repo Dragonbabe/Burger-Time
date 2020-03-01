@@ -1,1 +1,31 @@
-<button type="Submit">Add Burger!</button>
+<h1> Burgers!</h1>
+
+<h2>Burgers that you want to devour!</h2>
+
+<ul>
+    {{#each burgers}}
+    
+   
+    {{/each}}
+</ul>
+
+<form id="createburger" class= "button-size">
+    <div class="form-group">
+        <label for="burger">Burger Name:</label>
+        <input type="text" id="burger" name="name">
+        <button type="submit">Add Burger!</button>
+    </div>
+</form>
+
+<h2>Burgers that you have devoured</h2>
+<form id="updateburger" class="button-size">
+    <select name="id">
+        {{#each burgers}}
+        <option value="{{this.id}}">{{this.burger}}
+        </option>
+        {{/each}}
+    </select>
+    <textarea type="text" name="burger" placeholder="burger"></textarea>
+
+<button type="Submit">Devoured</button>
+</form>
