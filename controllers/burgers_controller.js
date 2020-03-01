@@ -5,7 +5,7 @@ const burger = require('../models/burger');
 let router = express.Router();
 
 router.get('/', (req, res) => {
-    burgers.selectAll(function(data) {
+    burger.selectAll(function(data) {
         const obj = {
             burgers: data
         };
