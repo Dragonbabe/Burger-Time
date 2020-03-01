@@ -1,6 +1,6 @@
 $(function(){
 
-$('.createburger').on('submit', function(event){
+$('.createburger').on('click', function(event){
     event.preventDefault();
 
     const newBurger = {
@@ -19,6 +19,7 @@ $('.createburger').on('submit', function(event){
 
 
     $('.updateburger').on('submit', function(event){
+        event.preventDefault();
         const id = $(this).data('id');
         const devoured = $(this).data('devoured');
         

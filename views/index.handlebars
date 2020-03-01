@@ -5,8 +5,9 @@
 <ul>
     {{#each burgers}}
     {{#unless devoured}}
-     
-   {{/unless}}
+      {{> burgers devoured=false}}
+    {{/unless}}
+        
     {{/each}}
 </ul>
 
@@ -19,16 +20,18 @@
 </form>
 
 <h2>Burgers that you have devoured</h2>
-<form id="updateburger" class="button-size">
-    <select name="id">
-        {{#each burgers}}
-        {{#if devoured}}
-        <option value="{{this.id}}">{{this.burger}}
+
+<ul>
+     {{#each burgers}}
+     {{#unless devoured}}
+      {{> burgers devoured=true}}
+    {{/unless}}
+   
         
-        {{/if}}
-        </option>
-        {{/each}}
-    </select>
+     {{/each}}
+</ul>
+<form id="updateburger" class="button-size">
+   
     <textarea type="text" name="burger" placeholder="burger"></textarea>
 
 <button type="Submit">Devoured</button>
