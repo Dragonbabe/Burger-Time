@@ -10,6 +10,7 @@ function printQuestionMarks(num) {
     return arr.toString();
 }
 function objToSql(ob){
+    
     const arr = [];
     for (const key in ob){
         const value = ob[key];
@@ -44,6 +45,8 @@ const orm = {
         queryString += printQuestionMarks(vals.length);
         queryString += ')';
 
+        console.log(queryString);
+
         connection.query(queryString, rowData, (err, data) => {
             if (err) {
                 throw err;
@@ -58,6 +61,8 @@ const orm = {
         queryString += objToSql(rowData);
         queryString += 'WHERE ';
         queryString += condition;
+
+        console.log(queryString);
 
         connection.query(queryString,(err, data) =>  
         {
