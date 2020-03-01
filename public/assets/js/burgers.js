@@ -1,6 +1,6 @@
-'use strict';
+$(function(){
 
-$.ajax('.createburger').on('submit', function(event){
+$('.createburger').on('submit', function(event){
     event.preventDefault();
 
     const newBurger = {
@@ -17,8 +17,8 @@ $.ajax('.createburger').on('submit', function(event){
     });
 });
 
-$(function(){
-    $('.updateburger').on('click', function(event){
+
+    $('.updateburger').on('submit', function(event){
         const id = $(this).data('id');
         const devoured = $(this).data('devoured');
         
