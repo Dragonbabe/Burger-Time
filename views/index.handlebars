@@ -4,9 +4,10 @@
 
 <ul>
     {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers devoured=false}}
+      {{#unless devoured}}
+        <li>{{ burger_name }}</li>
     {{/unless}}
+  
         
     {{/each}}
 </ul>

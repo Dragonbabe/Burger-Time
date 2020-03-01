@@ -5,9 +5,9 @@ const burger = require('../models/burger');
 let router = express.Router();
 
 router.get('/', (req, res) => {
-    burger.selectAll(function(data) {
+    burgers.selectAll(function(data) {
         const obj = {
-            burger: data
+            burgers: data
         };
         console.log(obj);
         res.render('index', obj)
