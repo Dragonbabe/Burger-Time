@@ -7,10 +7,11 @@ This application enables you to add different kinds of burgers and then mark the
 - [General info](#general-info)
 - [Technologies](#Technologies)
 - [Summary](#Summary)
+- [Authors](#authors)
 
 ## General Info
 
-This application utilizes the node, express, and MySql. I learned many more technologies including handlebars which was totally new and hella confusing!
+This application utilizes the node, express, and MySql. I learned many more technologies including handlebars which was totally new and highly confusing!
 
 GitHub URL: https://github.com/Dragonbabe/Burger-Time
 
@@ -27,21 +28,15 @@ Project is created with :
 
 ## Summary
 
-This application uses many different technologies and developing the back end logic to connect to the server and using MYSQL to get data from the database.
+This application uses many different technologies and developing the back end logic to connect to the server and using MYSQL to get data from the database. And in a fun way! Talking about burgers!!! :smile:
 
 
-![image](https://user-images.githubusercontent.com/55167673/72480644-f145af80-37ac-11ea-8ef5-aca3757a90c4.png)
-
-On the information page, the user has the option to save the event by clicking the button. This will add it to a list that user may access and edit anytime.
-
-![image](https://user-images.githubusercontent.com/55167673/72580994-a2724580-3892-11ea-9460-d58a048482b0.png)
+![image](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZBG8q9CZH6TSJY4zC5ssM2Emo-bz0n98u_piG4mmuAykGRQbR)
 
 ## Authors
 
-- Lisa Cabrera
 - Esther Walker
-- Issouf Kiema
-- Duc-Hoang Do
+
 
 ## License
 
