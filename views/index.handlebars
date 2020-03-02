@@ -6,17 +6,18 @@
     <div class="form-group">
         <label for="burger">Burger Name:</label>
         <input type="text" id="burger" name="name">
-        <button type="submit">Add Burger!</button>
+        
     </div>
 </form>
 
 <ul>
     {{#each burgers}}
       {{#unless devoured}}
-        <li>{{burger_name }}</li>
+        <li>{{this.id}} - {{this.burger_name }}</li>
     {{/unless}}   
     {{/each}}
 </ul>
+<button type="submit" class="bb" id="newburger" data-id="{{this.id}}" data-newDevouredBurger="{{devoured}}">Add Burger!</button>
 
 
 
@@ -26,14 +27,16 @@
    
     <textarea type="text" name="burger" placeholder="burger"></textarea>
 
-<button type="Submit">Devoured</button>
+
 </form>
 
 <ul>
      {{#each burgers}}
      {{#if devoured}}
-     <li>{{ burger_name}}</li> 
+     <li>{{this.id}} - {{this.burger_name}}</li> 
     {{/if}}
      {{/each}}
 </ul>
+
+<button type="Submit" data-id="{{this.id}}" data-newDevouredBurger="{{devoured}}">Devoured</button>
 

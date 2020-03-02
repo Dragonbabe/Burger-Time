@@ -16,13 +16,16 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/burger/create', (req, res) => {
-    burger.insertOne(req.body.burger_name, (result)=> {
+router.post('/api/burger/', (req, res) => {
+    burger.insertOne(
+        ["burger_name", "devoured"],
+        [req.body.burger_name, req.body.devoured],
+        function(result){
     res.json({ id: result.insertid})
     });
 });
 
-router.put('/burger/:id', (req, res) => {
+router.put('/api/burger/:id', (req, res) => {
     const condition = 'id =' + req.params.id;
 
     burger.updateOne({
