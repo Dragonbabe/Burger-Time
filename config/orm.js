@@ -35,7 +35,7 @@ const orm = {
         });
     },
 
-    insertOne: function(tableName, rowData, cb){
+    insertOne: function(tableName, cols, vals, cb){
         let queryString = `INSERT INTO ${tableName}`;
 
         queryString += '(';
@@ -47,7 +47,7 @@ const orm = {
 
         console.log(queryString);
 
-        connection.query(queryString, rowData, (err, data) => {
+        connection.query(queryString, cols, vals, (err, data) => {
             if (err) {
                 throw err;
             }
