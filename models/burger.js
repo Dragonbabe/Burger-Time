@@ -14,7 +14,7 @@ const burger = {
         });
     },
     updateOne: function(condition, cb){
-        orm.updateOne('burgers',{devoured: true}, condition, function(data){
+        orm.updateOne('burgers',"devoured = true", condition, function(data){
             cb(data);
         });
         

@@ -9,20 +9,20 @@ function printQuestionMarks(num) {
     }
     return arr.toString();
 }
-function objToSql(ob){
+// function objToSql(ob){
     
-    const arr = [];
-    for (const key in ob){
-        const value = ob[key];
-        if (Object.hasOwnProperty.call(ob, key)){
-            if (typeof value === 'string' && value.indexOf('') >=0){
-                value = "'" + value + "'"
-            }
-            arr.push(key + '=' + value);
-        }
-    }
-    return arr.toString();
-}
+//     const arr = [];
+//     for (const key in ob){
+//         let value = ob[key];
+//         if (Object.hasOwnProperty.call(ob, key)){
+//             if (typeof value === 'string' && value.indexOf('') >=0){
+//                 value = "'" + value + "'"
+//             }
+//             arr.push(key + '=' + value);
+//         }
+//     }
+//     return arr.toString();
+// }
 
 const orm = {
     selectAll: function (tableName, cb) {
@@ -54,16 +54,17 @@ const orm = {
             cb(data);
         });
     },
-    updateOne: function(rowData, condition, cb){
-        let queryString = 'UPDATE ? SET ? WHERE ?';
+    updateOne: function(tableName, rowData, condition, cb){
+        let queryString = `UPDATE ${tableName} SET ${rowData} WHERE ${condition}`;
 
-        queryString += 'SET ';
-        queryString += objToSql(rowData);
-        queryString += 'WHERE ';
-        queryString += condition;
+        // queryString += 'SET ';
+        // queryString += objToSql(rowData);
+        // queryString += 'WHERE ';
+        // queryString += condition;
 
         console.log(queryString);
 
+        //connection.query(queryString,[rowData, condition],(err, data) =>  
         connection.query(queryString,(err, data) =>  
         {
             if (err) {

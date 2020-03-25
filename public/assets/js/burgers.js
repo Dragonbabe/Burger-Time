@@ -2,7 +2,7 @@
 
 $(function(){
 
-$('.bb').on('click', function(event){
+$('#createburger').on('submit', function(event){
     event.preventDefault();
 
     const newBurger = {
@@ -22,18 +22,18 @@ $('.bb').on('click', function(event){
 });
 
 
-    $('.updateburger').on('click', function(event){
+    $(document).on('click', '.updateburger', function(event){
         event.preventDefault();
         const id = $(this).data('id');
         
-        const newDevouredBurger = {
+        // const newDevouredBurger = {
 
-            burger: devoured
-        };
+        //     burger: devoured
+        // };
 
         $.ajax('api/burgers' + id, {
             type: 'PUT',
-            data: newDevouredBurger
+            // data: newDevouredBurger
         }).then(function(){
             console.log("burger devoured!");
            

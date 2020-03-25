@@ -1,6 +1,5 @@
 <h1> Burgers!</h1>
 
-<h2>Burgers that you want to devour!</h2>
 
 <form id="createburger" class= "button-size">
     <div class="form-group">
@@ -8,16 +7,19 @@
         <input type="text" id="burger" name="name">
         
     </div>
+<button type="submit" class="bb" id="newburger" data-id="{{this.id}}" data-newDevouredBurger="{{devoured}}">Add Burger!</button>
 </form>
+
+
+<h2>Burgers that you want to devour!</h2>
 
 <ul>
     {{#each burgers}}
       {{#unless devoured}}
-        <li>{{this.id}} - {{this.burger_name }}</li>
+        <li>{{this.id}} - {{this.burger_name }} <button type="Submit" data-id="{{this.id}}" class="updateburger">Devoured</button></li> 
     {{/unless}}   
     {{/each}}
 </ul>
-<button type="submit" class="bb" id="newburger" data-id="{{this.id}}" data-newDevouredBurger="{{devoured}}">Add Burger!</button>
 
 
 
@@ -33,10 +35,10 @@
 <ul>
      {{#each burgers}}
      {{#if devoured}}
-     <li>{{this.id}} - {{this.burger_name}}</li> 
+     <li>{{this.id}} - {{this.burger_name}}  <button type="Submit" data-id="{{this.id}}" data-newDevouredBurger="{{devoured}}">Devoured</button></li> 
     {{/if}}
      {{/each}}
 </ul>
 
-<button type="Submit" data-id="{{this.id}}" data-newDevouredBurger="{{devoured}}">Devoured</button>
+
 
